@@ -1,3 +1,4 @@
+
 import joblib
 import json
 import numpy as np
@@ -40,13 +41,13 @@ def load_saved_artifacts():
     global __class_name_to_number
     global __class_number_to_name
 
-    with open("./artifacts/class_dictionary.json", "r") as f:
+    with open("/home/laaria/Desktop/PROJECTS/SportsPersonClassifier/server/artifacts/class_dictionary.json", "r") as f:
         __class_name_to_number = json.load(f)
         __class_number_to_name = {v:k for k,v in __class_name_to_number.items()}
 
     global __model
     if __model is None:
-        with open('./artifacts/saved_model.pkl', 'rb') as f:
+        with open('/home/laaria/Desktop/PROJECTS/SportsPersonClassifier/server/artifacts/saved_model.pkl', 'rb') as f:
             __model = joblib.load(f)
     print("loading saved artifacts...done")
 
@@ -96,7 +97,7 @@ if __name__ == '__main__':
     #print(classify_image(None, "./test_images/federer2.jpg"))
     # print(classify_image(None, "./test_images/virat1.jpg"))
     # print(classify_image(None, "./test_images/virat2.jpg"))
-    print(classify_image(None, "./test_images/virat3.jpg")) # Inconsistent result could be due to https://github.com/scikit-learn/scikit-learn/issues/13211
+    print(classify_image(None, "/home/laaria/Desktop/PROJECTS/SportsPersonClassifier/server/test_images/virat3.jpg")) # Inconsistent result could be due to https://github.com/scikit-learn/scikit-learn/issues/13211
     # print(classify_image(None, "./test_images/serena1.jpg"))
     # print(classify_image(None, "./test_images/serena2.jpg"))
     # print(classify_image(None, "./test_images/sharapova1.jpg"))
